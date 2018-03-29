@@ -1,17 +1,17 @@
 <?php
 if(isset($_POST["submit"])){
     $to = "josh@op-siix.com";
-    $name = $_POST["Name"];
+    $nameIn = $_POST["Name"];
     $from = $_POST['Email'];
     $subject = $_POST["Subject"];
     $subject2 = "Op-Siix Contact Confirmation";
-    $message = $name . " " . $name . " wrote the following: " . "\n\nSubject: " . $subject . "\n\nMessage: " . $_POST["message"];
-    $message2 = "Thank you for contacting Op-Siix. Here is a copy of your message:" . "\n\n" . $name . "\n\nSubject: " . $subject . "\n\nMessage: " . $_POST["message"];
-    $headers = "From: " . $from;
+    $message = $name . " " . $nameIn . " wrote the following: " . "\n\nSubject: " . $subject . "\n\nMessage: " . $_POST["message"];
+    $message2 = "Thank you for contacting Op-Siix. Here is a copy of your message:" . "\n\n" . $nameIn . "\n\nSubject: " . $subject . "\n\nMessage: " . $_POST["message"];
+    $headers1 = "From: " . $from;
     $headers2 = "From: " . $to;
-    mail($to,$subject,$message,$headers);
+    mail($to,$subject,$message,$headers1);
     mail($from,$subject2,$message2,$headers2);
-    echo "Message Sent. Thank you " . $name . ", we will contact you shortly.";
+    echo "Message Sent. Thank you " . $nameIn . ", we will contact you shortly.";
 }
 ?>
 
@@ -178,7 +178,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
       <label>Message</label>
       <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
     </div>
-    <button type="submit" class="w3-button w3-block w3-black">Send</button>
+    <button type="submit" name="submit" class="w3-button w3-block w3-black">Send</button>
   </form>
 
 </div>
