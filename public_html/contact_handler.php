@@ -15,4 +15,3 @@ if(isset($_POST["submit"])){
     mail($from,$subject2,$message2,$headers2);
     echo "Message Sent. Thank you " . $name . ", we will contact you shortly.";
 }
-?>
